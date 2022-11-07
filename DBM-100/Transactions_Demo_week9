@@ -1,0 +1,32 @@
+CREATE TABLE widgetInventory(      --inventory of store
+    id INTEGER PRIMARY KEY, 
+    description TEXT,
+    onhand INTEGER NOT NULL);
+    
+
+CREATE TABLE WidgetSales(   --acts as the selling/sold display
+    id INTEGER PRIMARY KEY,
+    inv_ID INTEGER,
+    quan INTEGER,
+    price INTEGER);
+    
+
+INSERT INTO widgetInventory ( description, onhand) VALUES ( 'rock', 25);  --item id of 1
+﻿﻿﻿INSERT INTO widgetinventory ( description, onhand ) VALUES ( 'paper', 25 );
+INSERT INTO widgetInventory ( description, onhand) VALUES ( 'scissors', 25 );
+
+SELECT * FROM widgetInventory;
+SELECT * FROM WidgetSales;
+
+BEGIN TRANSACTION;
+INSERT INTO WidgetSales(inv_id, quan, price) VALUES(1, 5, 500); --I want item 1 and 5 of them for 500 
+UPDATE widgetinventory SET onhand = (onhand - 5) WHERE id = 1;
+END TRANSACTION;
+
+BEGIN TRANSACTION;
+INSERT INTO widgetInventory(description, onhand) VALUES('toy', 30); --I want item 1 and 5 of them for 500 
+ROLLBACK; --undoes a transaction
+SELECT * FROM widgetInventory;
+---------------------
+
+--Transactions are also used to dramatically increase database preformance 

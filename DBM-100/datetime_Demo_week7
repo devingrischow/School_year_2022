@@ -1,0 +1,6 @@
+SELECT DATETIME('now');
+SELECT DATE('now');
+SELECT DATETIME('now', '+1 day');
+SELECT DATETIME('now', '+7 hours', '-15 minutes', '+2 days', '-1 year');
+
+

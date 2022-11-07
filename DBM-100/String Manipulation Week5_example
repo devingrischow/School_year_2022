@@ -1,0 +1,26 @@
+SELECT Name, LENGTH(Name) AS Len FROM City ORDER BY Len DESC, Name;
+
+
+
+
+SELECT released,
+    SUBSTR(released, 1, 4) AS Year,
+    SUBSTR(released, 6, 2) AS Month, 
+    SUBSTR(released, 9, 2) AS Day
+    From album ORDER BY released
+    ;
+
+
+SELECT SUBSTR('this do be a string though', 6, 3); 
+-- 6 means it will start displaying data from the strings, 3 means i get only three letters 
+
+
+SELECT TRIM('    STRING      ');
+SELECT LTRIM('        STRING     ');
+SELECT TRIM(' . . . . .STRIN . . . .'), ' ';
+
+SELECT 'sTrInG' = 'string';
+SELECT LOWER('StRiNg') = LOWER('string');    --will display 1, meaning true 
+SELECT UPPER(Name) From City ORDER BY Name;
+SELECT LOWER(Name) FROM City ORDER BY Name;
+

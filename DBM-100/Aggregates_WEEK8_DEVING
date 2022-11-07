@@ -1,0 +1,63 @@
+CREATE TABLE BirdWatching (
+birdType TEXT NOT NULL,
+birdRank INT,
+birdName TEXT
+);
+INSERT INTO BirdWatching (birdType,birdRank,birdName) VALUES('Mallard Duck', 9,'Quackers');
+INSERT INTO BirdWatching (birdType,birdRank,birdName) VALUES('Bald Eagle', 10,'Mr.Freedom');
+INSERT INTO BirdWatching (birdType,birdRank,birdName) VALUES('Black-Bellied Duck', 7,'CopperPot');
+INSERT INTO BirdWatching (birdType,birdRank,birdName) VALUES('Mallard Duck', 5,'Eli Vance');
+INSERT INTO BirdWatching (birdType,birdRank,birdName) VALUES('Budgie', 200,'Herb The Bird');
+INSERT INTO BirdWatching (birdType,birdRank) VALUES('Robin', 6);
+INSERT INTO BirdWatching (birdType,birdRank,birdName) VALUES('Budgie', 5000,'Basil Bird');
+INSERT INTO BirdWatching (birdType,birdRank) VALUES('Marbled Duck', 3);
+INSERT INTO BirdWatching (birdType,birdRank,birdName) VALUES('Pidgeon', 2,'Peckers');
+INSERT INTO BirdWatching (birdType,birdRank,birdName) VALUES('Robin', 7,'NightWing');
+INSERT INTO BirdWatching (birdType,birdRank,birdName) VALUES('Pidgeon', 8,'Jimmy');
+--point of table is to aggregate how many of each bird type I saw while birdwatching
+
+SELECT DISTINCT birdType AS BirdClass, COUNT(birdType) AS UniqueBirdCount, AVG(birdRank) As AverageBirdRank 
+    FROM BirdWatching
+    GROUP BY birdType
+    ORDER BY BirdClass, UniqueBirdCount, AverageBirdRank;
+
+CREATE TABLE dogsOnAWalk (
+dogType TEXT NOT NULL,
+dogSize TEXT,
+dogColor TEXT NOT NULL
+);
+
+INSERT INTO dogsOnAWalk (dogType,dogSize,dogColor) VALUES('Golden Retriver', 'Chunky','Gold');
+INSERT INTO dogsOnAWalk (dogType,dogSize,dogColor) VALUES('Husky', 'Big','Black-White');
+INSERT INTO dogsOnAWalk (dogType,dogSize,dogColor) VALUES('Morky', 'Small','Black');
+INSERT INTO dogsOnAWalk (dogType,dogSize,dogColor) VALUES('Boxer', 'Big','Brown');
+INSERT INTO dogsOnAWalk (dogType,dogSize,dogColor) VALUES('Boxer', 'Big','Black');
+INSERT INTO dogsOnAWalk (dogType,dogSize,dogColor) VALUES('Bull Terrier', 'Big','White');
+INSERT INTO dogsOnAWalk (dogType,dogSize,dogColor) VALUES('Bull Terrier', 'Big','Black');
+
+INSERT INTO dogsOnAWalk (dogType,dogSize,dogColor) VALUES('Schnoodle', 'Small','Black-White');
+INSERT INTO dogsOnAWalk (dogType,dogSize,dogColor) VALUES('Morky', 'Small','White');
+INSERT INTO dogsOnAWalk (dogType,dogSize,dogColor) VALUES('Husky', 'Big','Black-White');
+INSERT INTO dogsOnAWalk (dogType,dogSize,dogColor) VALUES('Weiner Dog', 'Chunky','Black-White');
+INSERT INTO dogsOnAWalk (dogType,dogSize,dogColor) VALUES('Weiner Dog', 'Small','Brown');
+
+INSERT INTO dogsOnAWalk (dogType,dogSize,dogColor) VALUES('PitBull', 'Small','Gray');
+INSERT INTO dogsOnAWalk (dogType,dogSize,dogColor) VALUES('Golden Retriver', 'Chunky','Gold');
+INSERT INTO dogsOnAWalk (dogType,dogSize,dogColor) VALUES('Golden Retriver', 'Big','Gold');
+
+SELECT DISTINCT dogType, COUNT(dogType) AS DogCount,dogSize, COUNT((dogSize)) AS SizeCount,dogColor, 
+    COUNT(dogColor) AS ColorCount
+    FROM dogsOnAWalk
+    GROUP BY dogType, dogSize, dogColor
+    ORDER BY dogType;
+
+
+
+
+
+
+
+
+SELECT * FROM BirdWatching;
+DROP TABLE BirdWatching;
+DROP TABLE dogsOnAWalk;

@@ -1,0 +1,20 @@
+CREATE VIEW Unlocked_GunView AS
+SELECT G.Category, G.Name, GoldDescription, GoldKillRemaning1, GoldDescription2, GoldKillRemaning2, GoldDescription3, GoldKillRemaning3, GoldDescription4, GoldKillRemaning4, GoldDescription5, GoldKillRemaning5, GoldDescription6, GoldKillRemaning6, GoldDescription7, GoldKillRemaning7, Gold
+ FROM Guns AS G;
+ 
+CREATE VIEW LockedGuns_View AS 
+SELECT LG.Name, LG.GUNLocked, GUNChallangeDescription, GUNChallangeKillCount FROM GUNS AS LG;
+ 
+SELECT * FROM Unlocked_GunView;
+SELECT * FROM LockedGuns_View;
+
+
+--selects GUNS THAT ARE NOT GOLD YET
+SELECT UGV.Category, UGV.Name, UGV.GoldDescription, UGV.GoldKillRemaning1, UGV.GoldDescription2, UGV.GoldKillRemaning2, UGV.GoldDescription3, UGV.GoldKillRemaning3, UGV.GoldDescription4, UGV.GoldKillRemaning4, UGV.GoldDescription5, UGV.GoldKillRemaning5, UGV.GoldDescription6, UGV.GoldKillRemaning6, UGV.GoldDescription7, UGV.GoldKillRemaning7 FROM Unlocked_GunView AS UGV WHERE UGV.Gold != 1;
+
+--selects the challanges left for all locked guns 
+SELECT GUNChallangeDescription FROM LockedGuns_View WHERE GUNLocked = 1;
+
+
+
+DROP VIEW LockedGuns_View;

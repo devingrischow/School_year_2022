@@ -1,0 +1,25 @@
+CREATE TABLE ducks (
+DuckNumb INT,
+DuckName TEXT, 
+DuckProfession TEXT
+);
+
+INSERT INTO ducks (DuckNumb, DuckName, DuckProfession) VALUES(1, 'captain quack', 'Captain');
+INSERT INTO ducks (DuckNumb, DuckName, DuckProfession) VALUES(2, 'cadet quack', 'cadet');
+INSERT INTO ducks (DuckNumb, DuckName, DuckProfession) VALUES(3, 'private bill', 'private');
+INSERT INTO ducks (DuckNumb, DuckName, DuckProfession) VALUES(4, 'quartermaster quack', 'quartermaster');
+INSERT INTO ducks (DuckNumb, DuckName, DuckProfession) VALUES(5, 'First Mate Mallard', 'First Mate');
+
+
+SELECT d.DuckNumb AS DuckNumber, c.name AS Name,d.DuckName, c.state AS Location, d.DuckProfession AS DuckJob
+    From ducks AS d
+    LEFT JOIN customer AS c ON c.id = d.DuckNumb
+    ORDER BY DuckNumber, DuckName
+    ;
+
+
+
+DROP TABLE ducks;
+
+
+

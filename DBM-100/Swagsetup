@@ -1,0 +1,117 @@
+--Ideas For Organization 
+--One Database for Gun Categories with also their guns
+--One database with challanges
+
+
+
+CREATE TABLE Guns (
+Categoray TEXT NOT NULL,
+Name TEXT NOT NULL,
+Gold BOOL NOT NULL,
+GoldDescription Text,
+GoldKillRemaning1 INT,
+GoldDescription2 Text,
+GoldKillRemaning2 INT,
+GoldDescription3 Text,
+GoldKillRemaning3 INT,
+GoldDescription4 Text,
+GoldKillRemaning4 INT,
+GoldDescription5 Text,
+GoldKillRemaning5 INT,
+GoldDescription6 Text,
+GoldKillRemaning6 INT,
+GoldDescription7 Text,
+GoldKillRemaning7 INT,
+GUNLocked BOOL,
+GUNChallangeDescription TEXT,
+GUNChallangeKillCount INT
+);
+
+--to view which guns I need will look like will look be like
+--Select name name remaining 
+
+
+--ASSAULT 
+INSERT INTO Guns (Category,Name,Gold, GoldDescription1, GoldKillRemaning1, GoldDescription2, GoldKillRemaning2,GoldDescription3, GoldKillRemaning3, GoldDescription4, GoldKillRemaning4, GoldDescription5, GoldKillRemaning5, GoldDescription6, GoldKillRemaning6, GoldDescription7,GoldKillRemaning7) 
+    VALUES('AssaultRifles','XM4', False);
+INSERT INTO Guns (Category,Name,Gold) VALUES('AssaultRifles','AK-47', False);
+INSERT INTO Guns (Category,Name,Gold) VALUES('AssaultRifles','Krig6', False);
+INSERT INTO Guns (Category,Name,Gold) VALUES('AssaultRifles','QBZ-83', False);
+INSERT INTO Guns (Category,Name,Gold) VALUES('AssaultRifles','FFAR1', True);
+INSERT INTO Guns (Category,Name,Gold) VALUES('AssaultRifles','XM4', False);
+INSERT INTO Guns (Category,Name,Gold,ChallangeLocked,ChallangeDescription, ChallangeKillCount) VALUES('AssaultRifles','C58', False, True, 'Kill 50 Special Enemies with Kazimir Portals(i have no clue what they are', 50);
+INSERT INTO Guns (Category,Name,Gold, ChallangeLocked) VALUES('AssaultRifles','EM2', False, True);
+INSERT INTO Guns (Category,Name,Gold, ChallangeLocked) VALUES('AssaultRifles','Grav', False, True);
+INSERT INTO Guns (Category,Name,Gold, ChallangeLocked) VALUES('AssaultRifles','Vargo52', False, True);
+
+
+
+
+
+
+--SMG
+INSERT INTO Guns (Category, Name, Gold, GUNLocked, GUNChallangeDescription, GUNChallangeKillCount) VALUES('SMG', 'ots9', False, True, 'kill 3  enemies affected by tactical equiptment in 15 different matches', 15);
+
+
+--Tactical Rifles
+INSERT INTO Guns (Category,Name,Gold, GoldDescription, GoldKillRemaning1, GoldDescription2, GoldKillRemaning2,GoldDescription3, GoldKillRemaning3, GoldDescription4, GoldKillRemaning4, GoldDescription5, GoldKillRemaning5, GoldDescription6, GoldKillRemaning6, GoldDescription7,GoldKillRemaning7) 
+    VALUES('Tactical','Type63', False, 'Get Kills', 2500, 'Get Critical Hit Kills', 2500, 'Get Kills While Pack-A-Punched', 2500, 'Get Kills On Special Enemies', 15,
+    'Get Kills Rapidly', 10, 'Get Critical Hit Kills Rapidly', 25, 'Get 20 Or More Consecutive Kills', 10);
+    
+INSERT INTO Guns (Category,Name,Gold, GoldDescription, GoldKillRemaning1, GoldDescription2, GoldKillRemaning2,GoldDescription3, GoldKillRemaning3, GoldDescription4, GoldKillRemaning4, GoldDescription5, GoldKillRemaning5, GoldDescription6, GoldKillRemaning6, GoldDescription7,GoldKillRemaning7) 
+    VALUES('Tactical','M16', False, 'Get Kills', 2500, 'Get Critical Hit Kills', 2500, 'Get Kills While Pack-A-Punched', 2500, 'Get Kills On Special Enemies', 15,
+    'Get Kills Rapidly', 10, 'Get Critical Hit Kills Rapidly', 25, 'Get 20 Or More Consecutive Kills', 10);
+    
+
+INSERT INTO Guns (Category,Name,Gold, GoldDescription, GoldKillRemaning1, GoldDescription2, GoldKillRemaning2,GoldDescription3, GoldKillRemaning3, GoldDescription4, GoldKillRemaning4, GoldDescription5, GoldKillRemaning5, GoldDescription6, GoldKillRemaning6, GoldDescription7,GoldKillRemaning7) 
+    VALUES('Tactical','Aug', False, 'Get Kills', 2500, 'Get Critical Hit Kills', 2500, 'Get Kills While Pack-A-Punched', 2500, 'Get Kills On Special Enemies', 15,
+    'Get Kills Rapidly', 10, 'Get Critical Hit Kills Rapidly', 25, 'Get 20 Or More Consecutive Kills', 10);
+
+
+INSERT INTO Guns (Category,Name,Gold, GoldDescription, GoldKillRemaning1, GoldDescription2, GoldKillRemaning2,GoldDescription3, GoldKillRemaning3, GoldDescription4, GoldKillRemaning4, GoldDescription5, GoldKillRemaning5, GoldDescription6, GoldKillRemaning6, GoldDescription7,GoldKillRemaning7) 
+    VALUES('Tactical','DMR14', False, 'Get Kills', 2500, 'Get Critical Hit Kills', 2500, 'Get Kills While Pack-A-Punched', 2500, 'Get Kills On Special Enemies', 15,
+    'Get Kills Rapidly', 10, 'Get Critical Hit Kills Rapidly', 25, 'Get 20 Or More Consecutive Kills', 10);
+    
+
+    
+Select * From Guns;
+
+--LMGs
+INSERT INTO Guns (Category,Name,Gold) VALUES('LMG','Stoner63', False);
+INSERT INTO Guns (Category,Name,Gold) VALUES('LMG','RPD', False);
+INSERT INTO Guns (Category,Name,Gold) VALUES('LMG','M60', False);
+
+--Sniper Rifles
+INSERT INTO Guns (Category,Name,Gold) VALUES('Sniper','Pellington703', False);
+INSERT INTO Guns (Category,Name,Gold) VALUES('Sniper','LW3', False);
+INSERT INTO Guns (Category,Name,Gold) VALUES('Sniper','M82', False);
+
+INSERT INTO Guns (Category, Name, Gold, GUNLocked, GUNChallangeDescription, GUNChallangeKillCount) VALUES('Sniper', 'ZRG 20mm', False, True, 'Using Snipers earn 2 Longshot medals in 10 different matches.', 10);
+
+
+
+--ShotGuns
+INSERT INTO Guns (Category,Name,Gold) VALUES('ShotGun','Hauler', True);
+INSERT INTO Guns (Category,Name,Gold) VALUES('ShotGun','Gallo', True);
+
+INSERT INTO Guns (Category, Name, Gold, GUNLocked, GUNChallangeDescription, GUNChallangeKillCount) VALUES('ShotGun', 'Streetsweeper', True, False, 'Using Shotguns, get 3 kills without dying in 15 different matches.', 15);
+
+
+--Pistols
+INSERT INTO Guns (Category,Name,Gold) VALUES('Pistols','1911', False);
+INSERT INTO Guns (Category,Name,Gold) VALUES('Pistols','Magnum', False);
+INSERT INTO Guns (Category,Name,Gold) VALUES('Pistols','Diamar', False);
+
+
+--Lauchers
+INSERT INTO Guns (Category,Name,Gold) VALUES('Laucner','Sigma', False);
+INSERT INTO Guns (Category,Name,Gold) VALUES('Laucner','RPG7', False);
+
+
+--Melee
+INSERT INTO Guns (Category,Name,Gold) VALUES('Melee','Knife', False);
+
+
+--Special
+
+

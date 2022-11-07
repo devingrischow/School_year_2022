@@ -1,0 +1,25 @@
+CREATE TABLE Programming_Languages (
+id INTEGER PRIMARY KEY, 
+Name TEXT NOT NULL,
+Short_description TEXT, 
+Rating INTEGER DEFAULT 0
+);
+
+ALTER TABLE Programming_Languages ADD Use TEXT DEFAULT "Multipurpose";
+
+
+INSERT INTO Programming_Languages (Name, Short_description, Rating, Use) VALUES('Python', 'great starter language very advanced', 5, 'Multipurpose');
+INSERT INTO Programming_Languages (Name, Short_description, Rating, Use) VALUES('HTML', 'Easy to start learning, simple base coding', 4, 'Website creation');
+INSERT INTO Programming_Languages (Name, Short_description, Rating, Use) VALUES('CSS', 'Easy to look at, difficult to master', 3, 'Website Design');
+INSERT INTO Programming_Languages (Name, Short_description, Rating, Use) VALUES('Javascript', 'good for website complexity, can make games', 1, 'Websites');
+INSERT INTO Programming_Languages (Name, Short_description, Rating, Use) VALUES('Swift', 'used to make apps for ALL APPLE devices', 5, 'Apple Apps');
+INSERT INTO Programming_Languages (Name, Short_description, Rating, Use) VALUES('SQL', 'Used to manage and create Databases', 4, 'Databases');
+
+SELECT * FROM Programming_Languages;
+
+SELECT Name, Short_description, Rating, Use  FROM Programming_Languages WHERE Rating > 2 ORDER BY Name;
+SELECT DISTINCT Name, Short_description, Rating, Use FROM Programming_Languages ORDER BY Rating ASC;
+
+
+
+DROP TABLE IF EXISTS Programming_Languages;

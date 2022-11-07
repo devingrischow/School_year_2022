@@ -1,0 +1,102 @@
+CREATE TABLE Swift (
+id INTEGER PRIMARY KEY,
+helpName NOT NULL,
+helpCategory TEXT,        --types: classes, enums, structs, general purpose, optionals, Iterable data types [array, dictionary, SQL, File types]
+solution TEXT NOT NULL,
+description,
+solutionRank INT NOT NULL,
+source TEXT NOT NULL,
+additionalNotes TEXT,
+TimeStamp Text
+);
+
+CREATE TRIGGER TimeLog AFTER INSERT ON Swift   --NEW ID is the ID of the event that activated the trigger
+    BEGIN
+        UPDATE Swift SET TimeStamp = DATETIME('now') WHERE id = NEW.id;   --this trigger updates widget sale with a timestamp of the current time
+    END
+;
+
+INSERT INTO Swift (helpName, helpCategory, solution, description, solutionRank, source) VALUES ('OrOperator','Operators', '||', 'When using If else statements and you need to test for if this == that1 OR this == that2, use || for OR', 
+3, 'https://stackoverflow.com/questions/26456587/swift-if-or-and-statement-like-python');
+
+INSERT INTO Swift (helpName, helpCategory, solution, description, solutionRank, source) VALUES ('AndOperator','Operators', '&&', 'When using If else statements and you need to test for if this == that1 AND this == that2, use && for AND', 
+3, 'https://stackoverflow.com/questions/26456587/swift-if-or-and-statement-like-python');
+
+INSERT INTO Swift (helpname, helpCategory, solution, description, solutionRank, source) VALUES ('ClassExample','Classes', 
+'class Fruit {
+    var name: String
+    var color: String
+    init(name: String, color: String) {
+        self.name = name
+        self.color = color
+    }
+}', 'This Is A Basic Class Template', 5, 'Devin');
+
+INSERT INTO Swift (helpName,helpCategory, solution, description, solutionRank, source) VALUES ('EnumerationWithDoubleValues','Enumerations',
+'enum Prices:Double{
+    case cheapest = 0.99
+    case lesscheap = 1.99
+    case middlePrice = 3.99
+    case smallOrder = 5.99
+    case entreStandard = 7.99
+    case entredeluxe = 9.99
+    
+}', 'This Is how you would set Up a Enumeration with a double value tied to them', 6, 'Devin');
+
+INSERT INTO Swift (helpName,helpCategory, solution, description, solutionRank, source) VALUES ('BasicComputedProperty','Computed Property', 
+'var ActivityMultiplier:Double{
+        if activityLevel == 1{
+            return 1.375
+        }', 'This is a basic Computed Property Example, it sets the activity multiplier equal to 1.375 if a already exsisting variable is equal to 1', 3, 'Devin'); 
+ 
+INSERT INTO Swift (helpName, helpCategory, solution, description, solutionRank, source, additionalNotes) VALUES ('AdvancedSwitchStatement','Switch', 
+'let goaldeterminer = self.goal
+            
+switch goaldeterminer{
+case .lose:
+    TDEE = TDEE - (TDEE * 0.20)
+case .gain:
+    TDEE = TDEE + (TDEE * 0.20)
+case .maintain:
+    Swift.print("No Change")
+}', 'A Switch Statement is used In combination with an enumeration, think of it as a more complex if statement, whichever value the enumeration is set equal to the switch statement will preform said calculations', 
+6, 'https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html', 'This Code Block is from the Macro Calculator Assighnment');
+
+INSERT INTO Swift (helpName, helpCategory, solution, description, solutionRank, source, additionalNotes) VALUES ('StructExample', 'Structs', 
+'struct FoodStats{
+    var FoodName:String
+    var ProteinWeight:Double
+    var FatWeight:Double
+    var CarbsWeight:Double
+    var GoalCategory:GoalCategories
+    var ServingSize:String
+}', 'This is an example of using a struct. Structs are like micro classes, they arent meant to do complex functions or store tons of methods, but they can. Its Best to use them when needing to create just an object, heres an example.', 6, 'Devin', 'This block of code is from the MACROCALCULATOR Assignment.');
+
+INSERT INTO Swift (helpName, helpCategory, solution, description, solutionRank, source, additionalNotes) VALUES ('StructObjectDemo', 'Structs', 
+'let kindDCN = FoodStats(FoodName: "Kind Dark Chocolate Nut", ProteinWeight: 12, FatWeight: 17, CarbsWeight: 18, GoalCategory: GoalCategories.gainMuscle, ServingSize: "1 Bar")', 'This is how you would declare a struct object. Notice how its almost identical to declaring class objects, which is basically is, its now a kindDCN is now a object of FoodStats', 6, 'Devin', 'This block of code is from the MACROCALCULATOR Assignment.');
+
+
+
+SELECT * FROM Swift;
+
+CREATE TABLE Python (
+id INTEGER PRIMARY KEY,
+helpName TEXT,
+helpCategory TEXT,        --types: classes, enums, structs, general purpose, optionals, Iterable data types [array, dictionary, SQL, File types]
+solution TEXT NOT NULL,
+description,
+solutionRank INT NOT NULL,
+source TEXT NOT NULL,
+additionalNotes TEXT,
+TimeStamp Text
+);
+
+INSERT INTO Python (helpCategory, solution, description, solutionRank, source) VALUES ('EmptyDictionary','Dictionaries', 'emptyDictionary = {}', 'This is How you Would Cr', 
+3, 'https://stackoverflow.com/questions/26456587/swift-if-or-and-statement-like-python');
+
+
+
+
+
+SELECT * FROM Swift;
+DROP TABLE Swift;

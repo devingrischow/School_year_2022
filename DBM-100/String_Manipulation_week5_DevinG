@@ -1,0 +1,38 @@
+CREATE TABLE Search_Queries (
+id INTEGER PRIMARY KEY, 
+possible_searched_term TEXT NOT NULL,
+action_description TEXT 
+);
+
+CREATE TABLE Queryed (
+search_id INTEGER PRIMARY KEY, 
+searched_term TEXT NOT NULL
+);
+
+-- so it would be like if the user searched for "photos" in the database table there would be something like two columns, 1 with the search term, and another with the following action
+ -- if this was to be a real life example, the table would probably have text column for what action should be preformed,                  
+
+INSERT INTO Search_Queries (possible_searched_term, action_description) VALUES('photos', 'open_photos_app');
+INSERT INTO Search_Queries (possible_searched_term, action_description) VALUES('watch', 'open_watch_app');
+INSERT INTO Search_Queries (possible_searched_term, action_description) VALUES('fitness', 'open_fitness_app');
+INSERT INTO Search_Queries (possible_searched_term, action_description) VALUES('calculator', 'open_calculator_app');
+INSERT INTO Search_Queries (possible_searched_term, action_description) VALUES('voice memos', 'open_voice_memos_app');
+
+INSERT INTO Queryed (searched_term) VALUES('OpEn      PHOtos');
+INSERT INTO Queryed (searched_term) VALUES('OPEN  waTCh');
+INSERT INTO Queryed (searched_term) VALUES('oPEN FitnESs');
+INSERT INTO Queryed (searched_term) VALUES('opEn       calCulATor');
+INSERT INTO Queryed (searched_term) VALUES('OpEn     vOICe MEMOs');
+
+
+
+SELECT LOWER(LTRIM(SUBSTR(q.searched_term, 5), ' ')) AS searched_term, dbs.possible_searched_term AS Stored_Search_Query, dbs.action_description AS Action_Description
+    From Search_Queries AS dbs
+    RIGHT JOIN Queryed AS q ON q.search_id = dbs.id
+    ORDER BY Stored_Search_Query, Stored_Search_Query, Action_Description;
+
+
+
+
+DROP TABLE Search_Queries;
+DROP TABLE Queryed;

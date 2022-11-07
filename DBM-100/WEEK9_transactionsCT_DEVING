@@ -1,0 +1,23 @@
+CREATE TABLE Swift (
+id INTEGER PRIMARY KEY,
+helpCategory TEXT,        --types: classes, enums, structs, general purpose, optionals, Iterable data types [array, dictionary, SQL, File types]
+solution TEXT NOT NULL,
+description,
+solutionRank INT NOT NULL,
+source TEXT NOT NULL,
+additionalNotes
+);
+
+INSERT INTO Swift (helpCategory, solution, description, solutionRank, source) VALUES ('General Purpose', '||', 'When using If else statements and you need to test for if this == that1 OR this == that2, use || for OR', 
+3, 'https://stackoverflow.com/questions/26456587/swift-if-or-and-statement-like-python');
+
+INSERT INTO Swift (helpCategory, solution, description, solutionRank, source) VALUES ('General Purpose', '&&', 'When using If else statements and you need to test for if this == that1 AND this == that2, use && for AND', 
+3, 'https://stackoverflow.com/questions/26456587/swift-if-or-and-statement-like-python');
+
+
+
+
+
+
+SELECT * FROM Swift;
+DROP TABLE Swift;

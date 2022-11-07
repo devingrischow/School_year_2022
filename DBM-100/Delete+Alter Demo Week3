@@ -1,0 +1,35 @@
+CREATE TABLE demo (
+one INTEGER DEFAULT 70,
+columbB TEXT, 
+tristate_Erea TEXT NOT NULL);
+DROP TABLE IF EXISTS demo;
+
+CREATE TABLE demo (
+id INTEGER PRIMARY KEY,  
+one INTEGER DEFAULT 70,
+columbB TEXT, 
+tristate_Erea TEXT NOT NULL);
+
+
+
+INSERT INTO demo VALUES(5,'EGGS', 'CANYON');   
+INSERT INTO demo (columbB, tristate_Erea) VALUES('data', 'its always so cool');
+
+    
+INSERT INTO demo (columbB, tristate_Erea) SELECT name, description from item;
+
+
+DELETE FROM demo WHERE one = 5;
+
+
+INSERT INTO demo (one, columbB, tristate_Erea) VALUES (0, NULL, "");
+
+ALTER TABLE demo ADD c TEXT DEFAULT "how did we get here?";
+
+
+
+SELECT * FROM demo;
+SELECT name, description FROM item WHERE description LIKE '%B%' ORDER BY name;
+
+
+SELECT DISTINCT one, columbB, tristate_Erea FROM demo ORDER BY columbB DESC;

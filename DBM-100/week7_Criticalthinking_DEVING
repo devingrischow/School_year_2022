@@ -1,0 +1,5 @@
+
+
+SELECT released, artist, title, DATE(released, '+35 years') AS InADecade FROM album WHERE InADecade IS NOT NULL;
+
+

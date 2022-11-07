@@ -1,0 +1,18 @@
+CREATE TABLE StudentGrades (
+student_name text,
+student_grades real
+);
+
+
+INSERT INTO StudentGrades (student_name,student_grades) VALUES('dave',89.4);
+INSERT INTO StudentGrades (student_name,student_grades) VALUES('archie',75.7);
+INSERT INTO StudentGrades (student_name,student_grades) VALUES('michelle', 78.78);
+INSERT INTO StudentGrades (student_name,student_grades) VALUES('daniel',60.1);
+INSERT INTO StudentGrades (student_name,student_grades) VALUES('rotary', 78.3);
+
+SELECT ROUND((total(student_grades)/5), 2) AS 'Students average to the tenths' FROM StudentGrades;
+
+--total takes all the student_grades from StudentGrades and adds them all together, but keeps it a real number value and not an int 
+
+
+DROP TABLE StudentGrades;

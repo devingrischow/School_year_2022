@@ -1,0 +1,50 @@
+--this critical thinking is a expansion of last weeks jimmys inventory
+--jimmy has recently expanded his store and has been getting a TON of new customers and wants to be able to track the time each customer paid at and
+--what the customers last order entry was 
+
+CREATE TABLE customerStorage (userID INTEGER PRIMARY KEY, name TEXT, previousOrderID INT);
+CREATE TABLE Sales (saleID INTEGER PRIMARY KEY, inventoryID INT, UserID INT, quan INT, totCost INT, purchaseTime TEXT);
+CREATE TABLE OrderLog (logID INTEGER PRIMARY KEY, timestamp TEXT, UserID INT, actionPreformed TEXT);
+
+
+INSERT INTO customerStorage (name) VALUES('Dave');
+INSERT INTO customerStorage (name) VALUES('Bill');
+INSERT INTO customerStorage (name) VALUES('Devin');
+INSERT INTO customerStorage (name) VALUES('Michelle');
+INSERT INTO customerStorage (name) VALUES('Quagmire');
+SELECT * FROM customerStorage;
+
+CREATE TRIGGER smartLog AFTER INSERT ON Sales
+BEGIN
+    UPDATE customerStorage SET previousOrderID = NEW.saleID WHERE customerStorage.userID = NEW.userID;
+    UPDATE Sales SET purchaseTime = DATETIME('now') WHERE saleID = NEW.saleID;
+    INSERT INTO OrderLog (timestamp, actionPreformed)
+        Values (DATETIME('now'), 'Purchase');
+    UPDATE OrderLog SET UserID = NEW.userID WHERE logID = NEW.SaleID;
+END
+;
+
+SELECT * FROM OrderLog;
+DROP TRIGGER smartLog;
+DROP TABLE Sales;
+DROP TABLE customerStorage;
+DROP TABLE OrderLog;
+
+--One customers Order 
+INSERT INTO Sales (inventoryID, UserID, quan, totCost) VALUES(23, 3, 16, 30);
+INSERT INTO Sales (inventoryID, UserID, quan, totCost) VALUES(8, 3, 200, 98);
+INSERT INTO Sales (inventoryID, UserID, quan, totCost) VALUES(1, 3, 5, 25);
+INSERT INTO Sales (inventoryID, UserID, quan, totCost) VALUES(6, 3, 20, 70);
+
+--another order
+INSERT INTO Sales (inventoryID, UserID, quan, totCost) VALUES(2, 4, 21, 89);
+INSERT INTO Sales (inventoryID, UserID, quan, totCost) VALUES(6, 4, 60, 98);
+INSERT INTO Sales (inventoryID, UserID, quan, totCost) VALUES(8, 4, 40, 100);
+
+
+    
+
+SELECT * FROM Sales;
+SELECT * FROM customerStorage;
+SELECT * FROM OrderLog;
+
